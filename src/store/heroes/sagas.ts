@@ -3,9 +3,10 @@ import { HeroesActionTypes } from './types'
 import { fetchError, fetchSuccess } from './actions'
 import callApi from '../../utils/callApi'
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || ''
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
 
 function* handleFetch() {
+  // console.log('env ' + process.env.REACT_APP_API_ENDPOINT)
   try {
     // To call async functions, use redux-saga's `call()`.
     const res = yield call(callApi, 'get', API_ENDPOINT, '/heroStats')
